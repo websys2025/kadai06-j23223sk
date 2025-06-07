@@ -1,0 +1,19 @@
+import requests
+
+APP_ID = "eb3e4b0c38f2a42f637f9e5654021bc62f7f5ade"
+
+# e-Stat APIのエンドポイント（統計データ取得用）
+API_URL = "https://api.e-stat.go.jp/rest/3.0/app/json/getStatsData"
+
+#  労働力調査の統計データを取得
+
+params = {
+    "appId": APP_ID,
+    "statsDataId": "0003107523",   # 労働力調査
+    "lang": "J"                    # 日本語で取得
+}
+
+response = requests.get(API_URL, params=params)
+data = response.json()
+import json
+print(data)
